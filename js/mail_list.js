@@ -3,6 +3,7 @@ var data1=[
            ,['田中','佐藤','example@mail.com' ]
            ,['あああ','いいい','aaa@mail.com']
            ,['山田やまだ','山田花子','yamada@mail.com']
+           ,['森鴎外','森三郎','mori@mail.com']
            ];
 
 function $E(id_){ return document.getElementById(id_); }
