@@ -1,3 +1,5 @@
+var targetuser_list = [];
+
 function getData(path, conditions){
 	var csvData = new Array();
 	var data = new XMLHttpRequest();
@@ -19,10 +21,30 @@ function getData(path, conditions){
 }
 
 function listupMember(conditions){
-	var memberList = [];
-
 	var data = getData("/resource/userlist.csv", conditions);
-	memberList = data;
+
+	var tmp = data;
+	var motherlist = new Array();
+	for (var i = 0; i < tmp.length; ++i){
+		motherlist.push(tmp[i][4]);
+	}
+	motherlist = motherlist.filter(function (x, i, self) {
+		return self.indexOf(x) === i;
+	});
+	console.log(motherlist);
+
+	memberList = new Array();
+	for(var i = 0; i < motherlist.length; ++i){
+		var namelist = new Array();
+		var place = ""
+		for(var j = 0; j < tmp.length; ++j){
+			if(tmp[j][4] == motherlist[i]){
+				namelist.push(tmp[j][0]);
+				place = tmp[j][2];
+			}
+		}
+		memberList.push({"namelist":namelist, "place":place});
+	}
 
 	return memberList;
 }
@@ -35,13 +57,20 @@ window.onload = function(){
 
 	var table = document.getElementById('memberlist');
 	for (var i = 0; i < members.length; ++i){
+		name_contents = "";
+		for (var j = 0; j < members[i]["namelist"].length; ++j){
+			name_contents += memberList[i]["namelist"][j];
+			if(j != members[i]["namelist"].length - 1)
+				name_contents += "<br>";
+		}
+
 		var contents = "\
 			<tr>\
 				<td>#NAME#</td>\
 				<td>#PLACE#</td>\
 			</tr>";
-		contents = contents.replace( /#NAME#/g , members[i][0]);
-		contents = contents.replace( /#PLACE#/g , members[i][2]);
+		contents = contents.replace( /#NAME#/g , name_contents);
+		contents = contents.replace( /#PLACE#/g , members[i]["place"]);
 		table.innerHTML += contents;
 	}
 
