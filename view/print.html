@@ -1,26 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="utf-8">
-    <!-- <script src="lib/handlebars.js"></script> -->
-    <!-- <link href="assets/ratchet/css/ratchet.css" rel="stylesheet"> -->
-	<!-- <link href="assets/css/styles.css" rel="stylesheet"> -->
+    <script src="../js/print.js" type="text/javascript"></script>
+    <link href="../css/print.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<p>テンプレート選択<br>
+<!-- <p>テンプレート選択<br>
 <input type="radio" value="運動会"> 運動会
 <input type="radio" value="バザー"> バザー
 <input type="radio" value="年賀状"> 年賀状
 <input type="radio" value="餅つき会"> 餅つき会
 <input type="radio" value="お祭り"> お祭り
 <input type="radio" value="卒園式"> 卒園式
-</p>
+</p> -->
+
+<div class="main-wrapper">
+<section>
+    <div class="center">
+        <div>
+            <img src="../resource/img1.jpg" id="bigimg">
+        </div>
+        <ul>
+            <li><img src="../resource/thumb-img1.jpg" class="thumb" data-image="../resource/img1.jpg"></li>
+            <li><img src="../resource/thumb-img2.jpg" class="thumb" data-image="../resource/img2.jpg"></li>
+            <li><img src="../resource/thumb-img3.jpg" class="thumb" data-image="../resource/img3.jpg"></li>
+            <li><img src="../resource/thumb-img4.jpg" class="thumb" data-image="../resource/img4.jpg"></li>
+            <li><img src="../resource/thumb-img5.jpg" class="thumb" data-image="../resource/img5.jpg"></li>
+            <li><img src="../resource/thumb-img6.jpg" class="thumb" data-image="../resource/img6.jpg"></li>
+        </ul>
+    </div>
+</section>
+</div>
 
 <div>
     <input type="button" value="Print">
     <input type="button" value="Back">
 </div>
+
+<script>
+    preview();
+</script>
 
 </body>
 </html>
