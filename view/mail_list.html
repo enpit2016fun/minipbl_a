@@ -5,29 +5,28 @@
   <body>                   
     <script src=../js/mail_list.js></script>
     <h1 id="title">メール送信リスト</h1>
- <div class="test">
-    <ul id="list">
-      <li id="item1">リスト1</li>
-      <li id="item2">リスト2</li>
-      <li id="item3">リスト3</li>
-      <li id="item4">リスト4</li>
-      <li id="item5">リスト5</li>
-      <li id="item6">リスト6</li>
-      <li id="item7">リスト7</li>
-      <li id="item8">リスト8</li>
-      <li id="item9">リスト9</li>
-      <li id="item10">リスト10</li>
-      <li id="item11">リスト11</li>
- </ul>
-</div>
 <style type="text/css">
-.test {
-	overflow:auto;
-	height:200px;
-	line-height:1.5;
-	padding:10px 0;
-}
+table.tt{border:1px solid black ; border-collapse:collapse;font-size:12pt}
+table.tt td{border:1px solid black;width:2.5em;text-align:center}
+table.tt tr:nth-child(odd)  td:nth-child(1) {background-color:#EEAA88;}
+table.tt tr:nth-child(odd)  td{background-color:#C8C8E8;}
+table.tt tr:nth-child(even) td:nth-child(1) {background-color:#FFBB88;}
+table.tt tr:nth-child(even) td{background-color:#E8E8FF;}
+table.tt th{border:1px solid black;width:2.5em;text-align:center;
+            background-color:#FFBB88}
 </style>
+<!-- 値をセットするTABLE -->
+<table class=tt id='table1'>
+ <thead></thead>
+ <tbody></tbody>
+</table>
+<!-- データと関数呼び出し -->
+<script type="text/javascript">
+
+hiTable.set_table($E('table1'),data1);
+
+</script>
+<input type="text" id="sampleUserInput" value="名前を入力" />
    <input type="button" name="addBtn" value="追加" onclick="addItem()" />
     <input type="button" name="delBtn" value="削除" onclick="delItem()" />
   </body>
