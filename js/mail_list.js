@@ -2,6 +2,7 @@ var data1=[
            ['卒園児の名前'  ,'親の名前'  ,'メールアドレス']
            ,['田中','佐藤','example@mail.com' ]
            ,['あああ','いいい','aaa@mail.com']
+           ,['山田やまだ','山田花子','yamada@mail.com']
            ];
 
 function $E(id_){ return document.getElementById(id_); }
