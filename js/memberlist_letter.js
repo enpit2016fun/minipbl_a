@@ -9,10 +9,10 @@ function getData(path, conditions){
 	for (var i = 0; i < lines.length; ++i) {
 		var cells = lines[i].split(",");
 		if(i == 0) continue;
-		else if(parseInt(cells[1]) < "limitYear" ) continue;
-		else if(conditions["SendFarResident"] == "No" && cells[3] == "遠方") continue;
-		else if(conditions["SendNurseryBrotherExist"] == "No" && cells[6] == "有") continue;
-		else csvData.push(cells);
+		if(parseInt(cells[1]) < conditions["limitYear"] ) continue;
+		if(conditions["SendFarResident"] == "No" && cells[3] == "遠方") continue;
+		if(conditions["SendNurseryBrotherExist"] == "No" && cells[6] == "有") continue;
+		csvData.push(cells);
 	}
 
 	return csvData;
@@ -29,8 +29,8 @@ function listupMember(conditions){
 
 window.onload = function(){
 	var today = new Date();
-	var limitYear = today.getFullYear();;
-	var conditions={"SendFarResident": "No", "SendNurseryBrotherExist": "No", "limitYear": limitYear}
+	var limitYear = today.getFullYear()-6;
+	var conditions={"SendFarResident": "Yes", "SendNurseryBrotherExist": "No", "limitYear": limitYear}
 	var members = listupMember(conditions);
 
 	var table = document.getElementById('memberlist');
