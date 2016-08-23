@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
+<link href="assets/css/styles.css" rel="styleheet">
+</head>
+<body>
+<script id="home-tpl" type="text/template"> <header class="bar bar-nav">
+<h1 class="title">メール送信リスト</h1>
+</header>
+<div class="bar bar-standard bar-header-secondary">
+<input class='search-key' type="search"/> </div>
+<div class="content"></div> </script>
+<script src="lib/handlebars.js"></script>
+<script src="cordova.js"></script>
+<script src="lib/jquery.js"></script>
+<script src="../js/services/websql/EmployeeService.js"></script>
+<script src="../js/mail_list.js"></script>
+
+</body>
+</html>
