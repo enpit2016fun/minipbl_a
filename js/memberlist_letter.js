@@ -1,17 +1,18 @@
-function csv2Array(filePath){
+function getData(path, conditions){
 	var csvData = new Array();
 	var data = new XMLHttpRequest();
-	data.open("GET", filePath, false);
-	data.send(null);
+	data.open("GET", path, false);
+	data.send("");
 
 	var LF = String.fromCharCode(10);
 	var lines = data.responseText.split(LF);
 	for (var i = 0; i < lines.length;++i) {
-		console.log(lines[i]);
 		var cells = lines[i].split(",");
-		if( cells.length != 1 ) {
-			csvData.push(cells);
-		}
+		if(i == 0) continue;
+		else if(parseInt(cells[1]) < "limitYear" ) continue;
+		else if(conditions["SendFarResident"] == "No" && cells[3] == "遠方") continue;
+		else if(conditions["SendNurseryBrotherExist"] == "No" && cells[3] == "有") continue;
+		else csvData.push(cells);
 	}
 
 	return csvData;
@@ -20,10 +21,8 @@ function csv2Array(filePath){
 function listupMember(conditions){
 	var memberList = [];
 
-	var data = csv2Array("../resource/userlist.csv");
+	var data = getData("/resource/userlist.csv", conditions);
 	memberList = data;
-
-	console.log("myFunc");
 
 	return memberList;
 }
@@ -31,7 +30,7 @@ function listupMember(conditions){
 window.onload = function(){
 	var today = new Date();
 	var limitYear = today.getFullYear();;
-	var conditions={"SendFarResident": 0, "SendNurseryBrotherExist": 0, "limitYear": limitYear}
+	var conditions={"SendFarResident": "No", "SendNurseryBrotherExist": "No", "limitYear": limitYear}
 	var members = listupMember(conditions);
 
 	console.log(members);
