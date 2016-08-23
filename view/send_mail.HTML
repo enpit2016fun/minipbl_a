@@ -1,41 +1,37 @@
 <html>
-  <head>
-    <div>
-      メール送信画面
-    </div>
-  </head>
   
-  <body> 
-
+  <!--
+    -->
+  
+  <head>
+    <meta charset="utf-8" />
+    メール送信画面
+  </head>
+  　
+  <body>   
   </body>
   
-
+  
   <form action="cgi-bin/aaa.cgi" method="post">
     
-    <br>
-    件名
-    <br>
+    <br>件名<br>
     <tr>
       <td><input type="text" name="title" size="30" maxlength="30"></td>
     </tr>
     
-    <br>
-    本文
-    <br>
     
+    <br>本文<br>
     <tr>
-      <!--	<td><input type="text" name="text" size="1000" maxlength="10000"></td>
+      <!--<td><input type="text" name="text" size="1000" maxlength="10000"></td>
 	-->
       <textarea name="freeans" rows="10" cols="100"></textarea>
       
     </tr>
-
     <br>
-
     <tr>
       <td>
-	<input type="submit" value="送信">
-	<input type="reset" value="戻る">
+	<input type="submit" value="送信" id="submit" name="送信する">
+	<input type="submit" value="戻る" id="submit" name="戻る">
       </td>
     </tr>
   </form>
