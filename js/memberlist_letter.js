@@ -6,7 +6,7 @@ function getData(path, conditions){
 
 	var LF = String.fromCharCode(10);
 	var lines = data.responseText.split(LF);
-	for (var i = 0; i < lines.length;++i) {
+	for (var i = 0; i < lines.length; ++i) {
 		var cells = lines[i].split(",");
 		if(i == 0) continue;
 		else if(parseInt(cells[1]) < "limitYear" ) continue;
@@ -32,6 +32,18 @@ window.onload = function(){
 	var limitYear = today.getFullYear();;
 	var conditions={"SendFarResident": "No", "SendNurseryBrotherExist": "No", "limitYear": limitYear}
 	var members = listupMember(conditions);
+
+	var table = document.getElementById('memberlist');
+	for (var i = 0; i < members.length; ++i){
+		var contents = "\
+			<tr>\
+				<td>#NAME#</td>\
+				<td>#PLACE#</td>\
+			</tr>";
+		contents = contents.replace( /#NAME#/g , members[i][0]);
+		contents = contents.replace( /#PLACE#/g , members[i][2]);
+		table.innerHTML += contents;
+	}
 
 	console.log(members);
 };
