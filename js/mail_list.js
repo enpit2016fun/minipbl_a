@@ -1,9 +1,10 @@
 var data1=[
            ['卒園児の名前'  ,'親の名前'  ,'メールアドレス']
-           ,['田中','佐藤','example@mail.com' ]
-           ,['あああ','いいい','aaa@mail.com']
-           ,['山田やまだ','山田花子','yamada@mail.com']
+           ,['田中一','田中五郎','example@mail.com' ]
+           ,['湯川秀樹','湯川秀俊','aaa@mail.com']
+           ,['山田奈緒子','山田花子','yamada@mail.com']
            ,['森鴎外','森三郎','mori@mail.com']
+           ,['北海花子','北海一','hokkai@mail.com']
            ];
 
 function $E(id_){ return document.getElementById(id_); }

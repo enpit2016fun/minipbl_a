@@ -1,18 +1,39 @@
 <html>
   <head>
 <script type="text/javascript" src="../js/mail_list.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/sample.css">
+</head>
   </head>
   <body>                   
     <script src=../js/mail_list.js></script>
     <h1 id="title">イベント対象者</h1>
 <style type="text/css">
-table.tt{border:1px solid black ; border-collapse:collapse;font-size:12pt}
-table.tt td{border:1px solid black;width:20em;text-align:center}
-table.tt tr:nth-child(odd)  td{background-color:#C8C8E8;}
-table.tt tr:nth-child(even) td{background-color:#E8E8FF;}
-table.tt th{border:1px solid black;width:2.5em;text-align:center;
-            background-color:#FFBB88}
+table#table1 {
+    width: 530px;
+    border: 1px #E3E3E3 solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+background-color: #c1e4e9;
+}
+
+table#table1 th {
+    padding: 5px;
+    border: #E3E3E3 solid;
+    border-width: 0 0 1px 1px;
+    background: #F5F5F5;
+    font-weight: bold;
+    line-height: 120%;
+    text-align: center;
+background-color: #ffe5cc;
+}
+table#table1 td {
+    padding: 5px;
+    border: 1px #E3E3E3 solid;
+    border-width: 0 0 1px 1px;
+    text-align: center;
+}
 </style>
+
 <!-- 値をセットするTABLE -->
 <table class=tt id='table1'>
  <thead></thead>
@@ -22,6 +43,7 @@ table.tt th{border:1px solid black;width:2.5em;text-align:center;
 <script type="text/javascript">
 
 hiTable.set_table($E('table1'),data1);
+
 
 </script>
    <input type="submit" name="makeBtn" value="作成"  />
