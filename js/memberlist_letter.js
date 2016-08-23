@@ -11,7 +11,7 @@ function getData(path, conditions){
 		if(i == 0) continue;
 		else if(parseInt(cells[1]) < "limitYear" ) continue;
 		else if(conditions["SendFarResident"] == "No" && cells[3] == "遠方") continue;
-		else if(conditions["SendNurseryBrotherExist"] == "No" && cells[3] == "有") continue;
+		else if(conditions["SendNurseryBrotherExist"] == "No" && cells[6] == "有") continue;
 		else csvData.push(cells);
 	}
 
