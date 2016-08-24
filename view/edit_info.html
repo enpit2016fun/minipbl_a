@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="../js/edit_info.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="header-contents">
+        <h1>卒園者リスト</h1>
+        <h2>卒園者の追加・変更</h2>
+    </div><!-- /.header-contents -->
+</header>
+
+<div class="center">
+<div class="main-wrapper">
+
+<h3>卒業生情報</h3>
+<form action="../view/graduateList.html">
+	<table>
+	<tr>
+		<td>
+			名前
+		</td>
+		<td>
+			<input type="text" name="name" required>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			卒業年度
+		</td>
+		<td>
+			<select name="graduate_year" id="yearList">
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			親の名前
+		</td>
+		<td>
+			<input type="text" name="parent_name" required>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			住所
+		</td>
+		<td>
+			<input type="text" name="address" required>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			遠方近郊
+		</td>
+		<td>
+			<input type="radio" name="far" value="yes"> 遠方
+			<input type="radio" name="far" value="no" checked> 近郊
+		</td>
+	</tr>
+	<tr>
+		<td>
+		在園兄弟の有無
+		</td>
+		<td>
+			<input type="radio" name="brother" value="yes"> 有
+			<input type="radio" name="brother" value="no" checked> 無
+		</td>
+	</tr>
+	</table>
+	<button type="submit">OK</button>
+	<button type="button" onclick="back()">Back</button>
+</form>
+
+</div>
+</div>
+
+</body>
+</html>
