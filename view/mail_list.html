@@ -1,53 +1,69 @@
+<!DOCTYPE html>
 <html>
-  <head>
-<script type="text/javascript" src="../js/mail_list.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/sample.css">
-</head>
-  </head>
-  <body>                   
-    <script src=../js/mail_list.js></script>
-    <h1 id="title">イベント対象者</h1>
-<style type="text/css">
-table#table1 {
-    width: 530px;
-    border: 1px #E3E3E3 solid;
-    border-collapse: collapse;
-    border-spacing: 0;
-background-color: #c1e4e9;
-}
+<head>
+  <title></title>
+  <script type="text/javascript" src="../js/mail_list.js"></script>
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
 
-table#table1 th {
-    padding: 5px;
-    border: #E3E3E3 solid;
-    border-width: 0 0 1px 1px;
-    background: #F5F5F5;
-    font-weight: bold;
-    line-height: 120%;
-    text-align: center;
-background-color: #ffe5cc;
+
+<style>
+section img {
+  max-width: 100%
 }
-table#table1 td {
-    padding: 5px;
-    border: 1px #E3E3E3 solid;
-    border-width: 0 0 1px 1px;
-    text-align: center;
+.center {
+  margin: 0 auto 0 auto;
+  width: 50%;
+}
+ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  float: left;
+  margin-right: 1%;
+  width: 24%;
 }
 </style>
 
+</head>
+<body>
+
+<header>
+<div class="header-contents">
+<h1>List</h1>
+<h2>ListUp</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="center">
+<div class="main-wrapper">
+
+<script src=../js/mail_list.js></script>
+
 <!-- 値をセットするTABLE -->
-<table class=tt id='table1'>
- <thead></thead>
- <tbody></tbody>
+<table border=1 id="memberlist">
+  <caption>メール送信対象者</caption>
+  <tr>
+    <th>名前</th>
+    <th>親の名前</th>
+    <th>メールアドレス</th>
+    <th>遠方近郊</th>
+    <th>在園兄弟</th>
+  </tr>
 </table>
-<!-- データと関数呼び出し -->
-<script type="text/javascript">
 
-hiTable.set_table($E('table1'),data1);
+<div style="display: inline">
+  <form action="../view/send_mail.HTML" style="display: inline">
+    <button type="submit">OK</button>
+  </form>
+  <form action="../view/index.html" style="display: inline">
+    <button type="submit">戻る</button>
+  </form>
+</div>
 
+</div>
+</div>
 
-</script>
-   <input type="submit" name="makeBtn" value="作成"  />
-    <input type="submit" name="backBtn" value="戻る"
-    onClick="location.href='index.html';"/>
-  </body>
+</body>
 </html>
