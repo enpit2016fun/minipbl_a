@@ -53,7 +53,8 @@
 <section>
 	<p>連絡先の条件を選択してください</p>
 	<!--<form id="form" action="memberlist_letter.html">-->
-	<form id="form" action="memberlist_letter.html" name="form1">
+	<form id="form" action="onClick()" name="form1">
+	<!--<form id="form" name="form1">-->
 		<input type="checkbox" name="far" value="Yes">遠方にも送る<br>
 		<input type="checkbox" name="brother" value="Yes">在園する兄弟がいる人も送る<br>
 		<input type="radio" name="frequency">ハガキ<br>
@@ -107,10 +108,20 @@ $(document).ready(function(){
 		return false; // 送信を中止
 	}
 	else{
-		return true; // 送信を実行
+		Click();
+		//return true;
 	}
 	}
 
+	function Click(){
+		if(document.form1.frequency[0].checked == true){
+			return form.action="memberlist_letter.html";
+		}
+		if(document.form1.frequency[1].checked == true){
+			return form.action="mail_list.html";
+		}
+	}
+	
 </script>
 </body>
 </html>
