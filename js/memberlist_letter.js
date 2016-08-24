@@ -1,5 +1,29 @@
 var targetuser_list = [];
 
+function GetQueryString() {
+	if (1 < document.location.search.length) {
+		// 最初の1文字 (?記号) を除いた文字列を取得する
+		var query = document.location.search.substring(1);
+
+		// クエリの区切り記号 (&) で文字列を配列に分割する
+		var parameters = query.split('&');
+
+		var result = new Object();
+		for (var i = 0; i < parameters.length; i++) {
+			// パラメータ名とパラメータ値に分割する
+			var element = parameters[i].split('=');
+
+			var paramName = decodeURIComponent(element[0]);
+			var paramValue = decodeURIComponent(element[1]);
+
+			// パラメータ名をキーとして連想配列に追加する
+			result[paramName] = decodeURIComponent(paramValue);
+		}
+		return result;
+	}
+	return null;
+}
+
 function getData(path, conditions){
 	var csvData = new Array();
 	var data = new XMLHttpRequest();
@@ -12,8 +36,8 @@ function getData(path, conditions){
 		var cells = lines[i].split(",");
 		if(i == 0) continue;
 		if(parseInt(cells[1]) < conditions["limitYear"] ) continue;
-		if(conditions["SendFarResident"] == "No" && cells[3] == "遠方") continue;
-		if(conditions["SendNurseryBrotherExist"] == "No" && cells[6] == "有") continue;
+		if(typeof conditions["SendFarResident"] === "undefined" && cells[3] == "遠方") continue;
+		if(typeof conditions["SendNurseryBrotherExist"] === "undefined" && cells[6] == "有") continue;
 		csvData.push(cells);
 	}
 
@@ -31,7 +55,6 @@ function listupMember(conditions){
 	motherlist = motherlist.filter(function (x, i, self) {
 		return self.indexOf(x) === i;
 	});
-	console.log(motherlist);
 
 	memberList = new Array();
 	for(var i = 0; i < motherlist.length; ++i){
@@ -52,7 +75,8 @@ function listupMember(conditions){
 window.onload = function(){
 	var today = new Date();
 	var limitYear = today.getFullYear()-6;
-	var conditions={"SendFarResident": "Yes", "SendNurseryBrotherExist": "No", "limitYear": limitYear}
+	var param = GetQueryString();
+	var conditions={"SendFarResident": param['far'], "SendNurseryBrotherExist": param['brother'], "limitYear": limitYear}
 	var members = listupMember(conditions);
 
 	var table = document.getElementById('memberlist');
@@ -73,6 +97,4 @@ window.onload = function(){
 		contents = contents.replace( /#PLACE#/g , members[i]["place"]);
 		table.innerHTML += contents;
 	}
-
-	console.log(members);
 };
