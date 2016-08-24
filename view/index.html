@@ -6,10 +6,45 @@
 <meta http-equiv="x-ua-compatible" content="IE=edge">
 <title>template</title>
 <link href="../css/style.css" rel="stylesheet" type="text/css">
+<style>
+#box{
+	display: none;
+	margin: 0 auto 0 auto;
+	max-width: 960px;
+}
+#box ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#box li{
+	padding: 8px 0 8px 0;
+	color: #20567d;
+	border-bottom: 1px solid #ffffff;
+}
+.header-contents{
+	position: relative;
+}
+#box_btn{
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 0 0 8px 8px;
+	padding: 6px 20px 6px 20px;
+	background-color: #fff;
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
+<div id="box">
+	<ul>
+		<li><a href="memberlist_letter.html">卒園者List</a></li>
+	</ul>
+</div>
 <header>
 <div class="header-contents">
+<div id="box_btn">Menu</div>
 <h1>保育園卒園児向け情報発信IT化支援システム</h1>
 <h2>ハガキやメール送信を楽々に♪</h2>
 </div><!-- /.header-contents -->
@@ -30,7 +65,14 @@
 <div id="result"></div>
 	<!-- /.main-wrapper -->
 <footer>teamA</footer>
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+$(document).ready(function(){
+	$('#box_btn').on('click', function(){
+		$('#box').slideToggle();
+	});
+});
+</script>
 <script>
 
 	document.getElementById('form').onsubmit = function(){
