@@ -11,3 +11,27 @@ function getData(){
     }
     return csvData;
 }
+
+window.onload = function(){
+	var members = getData();
+	console.log(members);
+
+	var table = document.getElementById('memberlist');
+	for (var i = 1; i < members.length; ++i){
+		var contents = "<tr>"+
+							"<td>"+members[i][0]+"</td>"+
+							"<td>"+members[i][1]+"</td>"+
+							"<td>"+members[i][2]+"</td>"+
+							"<td>"+members[i][3]+"</td>"+
+							"<td>"+members[i][4]+"</td>"+
+							"<td>"+members[i][5]+"</td>"+
+							"<td>"+members[i][6]+"</td>"+
+							"<td>"+
+									"<form action=\"../view/edit_info.html\">"+
+										"<button type=\"submit\">Edit</button>"+
+									"</form>"+
+							"</td>"+
+						"</tr>";
+		table.innerHTML += contents;
+	}
+};
