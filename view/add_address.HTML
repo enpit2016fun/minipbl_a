@@ -5,7 +5,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="sample.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     メールアドレス追加画面
   </head>
   　
@@ -15,14 +15,20 @@
 
   <form action="cgi-bin/aaa.cgi" method="post">
 
-    <br>address<br>
+    <br>保護者氏名<br>
+    <tr>
+      <td><input type="text" name="title" size="10" maxlength="30"></td>
+    </tr>
+
+    <br>メールアドレス<br>
     <tr>
       <td><input type="text" name="title" size="30" maxlength="30"></td>
     </tr>
     
+    <br><br>
     <tr>
       <td>
-        <input type="submit" value="送信" id="submit" name="送信する">
+        <input type="submit" value="OK" id="submit" name="OK">
       </td>
     </tr>
   </form>
