@@ -11,9 +11,9 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <title>template</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <script type="text/javascript" src="../js/sendMail.js"></script>
+    
   </head>  
-  <body>
+<body>
     <header>
       <div class="header-contents">
 	<h1>メール送信画面</h1>
@@ -41,7 +41,7 @@
 	    <br>
 	    <tr>
 	      <td>
-		<input type="submit" value="送信" id="submit" name="送信する" onClick="disp()">
+		<input type="submit" value="送信" id="submit" name="送信する">
 		<input type="submit" value="戻る" id="submit" name="戻る" 
 		       onClick="location.href='index.html';"/>
 	      </td>
