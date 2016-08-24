@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title></title>
+	<script type="text/javascript" src="../js/edit_info.js"></script>
 </head>
 <body>
 <h1>卒業生情報</h1>
@@ -12,7 +13,7 @@
 			名前
 		</td>
 		<td>
-			<input type="text" name="example1">
+			<input type="text" name="name" required>
 		</td>
 	</tr>
 	<tr>
@@ -20,8 +21,7 @@
 			卒業年度
 		</td>
 		<td>
-			<select name="卒業年度" id="year">
-				<option value="2016">2016</option>
+			<select name="graduate_year" id="yearList">
 			</select>
 		</td>
 	</tr>
@@ -30,7 +30,7 @@
 			親の名前
 		</td>
 		<td>
-			<input type="text" name="parent_name">
+			<input type="text" name="parent_name" required>
 		</td>
 	</tr>
 	<tr>
@@ -38,7 +38,7 @@
 			住所
 		</td>
 		<td>
-			<input type="text" name="example1">
+			<input type="text" name="address" required>
 		</td>
 	</tr>
 	<tr>
@@ -46,8 +46,8 @@
 			遠方近郊
 		</td>
 		<td>
-			<input type="radio" name="far" value="遠方"> 遠方
-			<input type="radio" name="far" value="近郊" checked> 近郊
+			<input type="radio" name="far" value="yes"> 遠方
+			<input type="radio" name="far" value="no" checked> 近郊
 		</td>
 	</tr>
 	<tr>
@@ -55,8 +55,8 @@
 		在園兄弟の有無
 		</td>
 		<td>
-			<input type="radio" name="brother" value="有"> 有
-			<input type="radio" name="brother" value="無" checked> 無
+			<input type="radio" name="brother" value="yes"> 有
+			<input type="radio" name="brother" value="no" checked> 無
 		</td>
 	</tr>
 	</table>
