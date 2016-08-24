@@ -59,14 +59,18 @@ function listupMember(conditions){
 	memberList = new Array();
 	for(var i = 0; i < motherlist.length; ++i){
 		var namelist = new Array();
-		var place = ""
+		var place = "";
+		var far = "";
+		var brother = "";
 		for(var j = 0; j < tmp.length; ++j){
 			if(tmp[j][4] == motherlist[i]){
 				namelist.push(tmp[j][0]);
 				place = tmp[j][2];
+				far = tmp[j][3];
+				brother = tmp[j][6];
 			}
 		}
-		memberList.push({"namelist":namelist, "place":place});
+		memberList.push({"namelist":namelist, "place":place, "far": far, "brother": brother});
 	}
 
 	return memberList;
@@ -92,9 +96,13 @@ window.onload = function(){
 			<tr>\
 				<td>#NAME#</td>\
 				<td>#PLACE#</td>\
+				<td>#FAR#</td>\
+				<td>#BROTHER#</td>\
 			</tr>";
 		contents = contents.replace( /#NAME#/g , name_contents);
 		contents = contents.replace( /#PLACE#/g , members[i]["place"]);
+		contents = contents.replace( /#FAR#/g , members[i]["far"]);
+		contents = contents.replace( /#BROTHER#/g , members[i]["brother"]);
 		table.innerHTML += contents;
 	}
 };
