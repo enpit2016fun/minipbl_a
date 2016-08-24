@@ -1,40 +1,59 @@
+<!doctype html>
 <html>
   
   <!--
     -->
   
   <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    
     <meta charset="utf-8" />
-    メール送信画面
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>template</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    
   </head>
   　
-  <body>   
+  <body>
+    
+    <header>
+      <div class="header-contents">
+	<h1>メールアドレス送信画面</h1>
+      </div><!-- /.header-contents -->
+    </header>
+    
+    <div class="main-wrapper">
+      <section>
+	
+	<p>
+	  <form action="cgi-bin/aaa.cgi" method="post">
+	    
+	    <br>件名<br>
+	    <tr>
+	      <td><input type="text" name="title" size="30" maxlength="30"></td>
+	    </tr>	    
+	    
+	    <br>本文<br>
+	    <tr>
+	      <!--<td><input type="text" name="text" size="1000" maxlength="10000"></td>
+		-->
+	      <textarea name="freeans" rows="10" cols="100"></textarea>
+	      
+	    </tr>
+	    <br>
+	    <tr>
+	      <td>
+		<input type="submit" value="送信" id="submit" name="送信する">
+		<input type="submit" value="戻る" id="submit" name="戻る">
+	      </td>
+	    </tr>
+	  </form>
+	</p>
+	
+      </section>
+    </div><!-- /.main-wrapper -->
+    <footer>teamA</footer>
+    
   </body>
-  
-  
-  <form action="cgi-bin/aaa.cgi" method="post">
-    
-    <br>件名<br>
-    <tr>
-      <td><input type="text" name="title" size="30" maxlength="30"></td>
-    </tr>
-    
-    
-    <br>本文<br>
-    <tr>
-      <!--<td><input type="text" name="text" size="1000" maxlength="10000"></td>
-	-->
-      <textarea name="freeans" rows="10" cols="100"></textarea>
-      
-    </tr>
-    <br>
-    <tr>
-      <td>
-	<input type="submit" value="送信" id="submit" name="送信する">
-	<input type="submit" value="戻る" id="submit" name="戻る">
-      </td>
-    </tr>
-  </form>
   
 </html>
