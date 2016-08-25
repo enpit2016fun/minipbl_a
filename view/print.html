@@ -2,6 +2,8 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="../js/print.js" type="text/javascript"></script>
     <link href="../css/print.css" rel="stylesheet" type="text/css">
 	<link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -18,21 +20,15 @@
 
 <div class="center">
 
-<!-- <p>テンプレート選択<br>
-<input type="radio" value="運動会"> 運動会
-<input type="radio" value="バザー"> バザー
-<input type="radio" value="年賀状"> 年賀状
-<input type="radio" value="餅つき会"> 餅つき会
-<input type="radio" value="お祭り"> お祭り
-<input type="radio" value="卒園式"> 卒園式
-</p> -->
-
 <div class="main-wrapper">
 
 <section>
         <p>テンプレート選択</p>
+        <div class="box">
             <img src="../resource/運動会.png" id="bigimg">
             <!-- <img src="../resource/運動会.png" id="bigimg" width="50%" height="50%"> -->
+        </div>
+        <div class="box">
         <ul>
             <li><img src="../resource/thumb-運動会.png" class="thumb" data-image="../resource/運動会.png"></li>
             <li><img src="../resource/thumb-バザー.png" class="thumb" data-image="../resource/バザー.png"></li>
@@ -41,20 +37,31 @@
             <li><img src="../resource/thumb-お祭り.png" class="thumb" data-image="../resource/お祭り.png"></li>
             <li><img src="../resource/thumb-卒園式.png" class="thumb" data-image="../resource/卒園式.png"></li>
         </ul>
+        </div>
 </section>
 
 <div>
     タイトル：
-    <input type="text" name="word">
+    <input type="text" value="第○回卒園式">
     <br>
     コメント：<br>
-    <textarea name="bikou" rows="10" cols="80"></textarea><br>
-    <input type="submit" name="sousin" value="プレビュー">
+    <textarea rows="10" cols="80">○月○日に卒園式を行います。</textarea><br>
+    <input type="submit" value="プレビュー" id="modal-open">
 </div>
 
-<div>
-    <button type="submit">印刷</button>
-    <form action="../view/memberlist_letter.html">
+<div id="modal-content">
+    <p>プレビュー</p>
+    <img src="../resource/preview.png" width="100%"><br>
+    <input type="submit" value="閉じる" id="modal-close">
+</div>
+
+<br>
+
+<div style="display: inline">
+    <form action="../view/print_completion.html" style="display: inline">
+        <button type="submit">印刷</button>
+    </form>
+    <form action="../view/memberlist_letter.html" style="display: inline">
         <button type="submit">戻る</button>
     </form>
 </div>
