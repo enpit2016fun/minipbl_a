@@ -8,9 +8,8 @@
     
     <script type="text/javascript">
       
-      function closewin() {
-        alert("メールアドレスを追加しました") ;
-        window.close() ; 
+      function nextwin() {
+      document.location.href = "finished_sending_address.html";
       }
       
     </script>
@@ -27,7 +26,7 @@
     
     <header>
       <div class="header-contents">
-	<h1>メールアドレス追加画面</h1>
+	<h1>メールアドレス追加</h1>
       </div><!-- /.header-contents -->
     </header>
     
@@ -51,7 +50,7 @@
 	    <br><br>
 	    <tr>
 	      <td>
-		<input type="submit" value="OK" id="submit" name="OK" onClick="closewin()">
+		<input type="submit" value="OK" id="submit" name="OK" onClick="nextwin()">
 	      </td>
 	    </tr>
 	  </form>
