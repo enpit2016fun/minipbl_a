@@ -14,9 +14,14 @@
     <script type="text/javascript" src="../js/sendMail.js"></script>
   </head>  
   <body>
+<style type="text/css">
+.button_wrapper{
+   text-align:center;
+}
+</style>
     <header>
       <div class="header-contents">
-	<h1>メール送信画面</h1>
+	<h1>送信完了</h1>
       </div><!-- /.header-contents -->
     </header>
     
@@ -24,25 +29,13 @@
       <section>
 	
 	<p>
-	    
-	    <br>件名<br>
-	    <tr>
-	      <td><input type="text" name="title" size="30" maxlength="30"></td>
-	    </tr>	    
-	    
-	    <br>本文<br>
-	    <tr>
-	      <!--<td><input type="text" name="text" size="1000" maxlength="10000"></td>
-		-->
-	      <textarea name="freeans" rows="10" cols="100"></textarea>
-	      
-	    </tr>
-	    <br>
-	    <tr>
-	      <td>
-		<input type="submit" value="送信" id="submit" name="送信する" onClick="location.href='sentMessage.html';">
-		<input type="submit" value="戻る" id="submit" name="戻る" 
-		       onClick="location.href='mail_list.html';"/>
+<div align="center">
+	    <p>メールを送信しました</p>
+	  </div>
+<div class="button_wrapper">
+		<input type="submit" value="トップ" id="submit" name="トップ" 
+		       onClick="location.href='index.html';"/>
+</div>
 	      </td>
 	    </tr>
 	  </form>
