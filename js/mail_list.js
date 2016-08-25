@@ -36,7 +36,7 @@ function getData(path, conditions){
         var cells = lines[i].split(",");
         if(i == 0) continue;
         if(parseInt(cells[1]) < conditions["limitYear"] ) continue;
-        if(cells[6] == "") continue;
+        if(cells[5] == "") continue;
         if(typeof conditions["SendFarResident"] === "undefined" && cells[3] == "遠方") continue;
         if(typeof conditions["SendNurseryBrotherExist"] === "undefined" && cells[6] == "有") continue;
         csvData.push(cells);
