@@ -24,6 +24,28 @@ function GetQueryString() {
 	return null;
 }
 
+// 文字列をUTF8のバイト配列に変換
+function string_to_utf8_bytes(text)
+{
+    var result = [];
+    if (text == null)
+        return result;
+    for (var i = 0; i < text.length; i++) {
+        var c = text.charCodeAt(i);
+        if (c <= 0x7f) {
+            result.push(c);
+        } else if (c <= 0x07ff) {
+            result.push(((c >> 6) & 0x1F) | 0xC0);
+            result.push((c & 0x3F) | 0x80);
+        } else {
+            result.push(((c >> 12) & 0x0F) | 0xE0);
+            result.push(((c >> 6) & 0x3F) | 0x80);
+            result.push((c & 0x3F) | 0x80);
+        }
+    }
+    return result;
+}
+
 function getData(path, conditions){
 	var csvData = new Array();
 	var data = new XMLHttpRequest();
@@ -31,13 +53,15 @@ function getData(path, conditions){
 	data.send("");
 
 	var LF = String.fromCharCode(10);
-	var lines = data.responseText.split(LF);
+	var lines = data.responseText.split(/\r\n|\r|\n/);
 	for (var i = 0; i < lines.length; ++i) {
 		var cells = lines[i].split(",");
 		if(i == 0) continue;
 		if(parseInt(cells[1]) < conditions["limitYear"] ) continue;
 		if(typeof conditions["SendFarResident"] === "undefined" && cells[3] == "遠方") continue;
 		if(typeof conditions["SendNurseryBrotherExist"] === "undefined" && cells[6] == "有") continue;
+		console.log(cells);
+
 		csvData.push(cells);
 	}
 
@@ -59,14 +83,18 @@ function listupMember(conditions){
 	memberList = new Array();
 	for(var i = 0; i < motherlist.length; ++i){
 		var namelist = new Array();
-		var place = ""
+		var place = "";
+		var far = "";
+		var brother = "";
 		for(var j = 0; j < tmp.length; ++j){
 			if(tmp[j][4] == motherlist[i]){
 				namelist.push(tmp[j][0]);
 				place = tmp[j][2];
+				far = tmp[j][3];
+				brother = tmp[j][6];
 			}
 		}
-		memberList.push({"namelist":namelist, "place":place});
+		memberList.push({"namelist":namelist, "place":place, "far": far, "brother": brother});
 	}
 
 	return memberList;
@@ -92,9 +120,13 @@ window.onload = function(){
 			<tr>\
 				<td>#NAME#</td>\
 				<td>#PLACE#</td>\
+				<td>#FAR#</td>\
+				<td>#BROTHER#</td>\
 			</tr>";
 		contents = contents.replace( /#NAME#/g , name_contents);
 		contents = contents.replace( /#PLACE#/g , members[i]["place"]);
+		contents = contents.replace( /#FAR#/g , members[i]["far"]);
+		contents = contents.replace( /#BROTHER#/g , members[i]["brother"]);
 		table.innerHTML += contents;
 	}
 };
