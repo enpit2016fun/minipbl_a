@@ -11,12 +11,17 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <title>template</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    
+    <script type="text/javascript" src="../js/sendMail.js"></script>
   </head>  
-<body>
+  <body>
+<style type="text/css">
+.button_wrapper{
+   text-align:center;
+}
+</style>
     <header>
       <div class="header-contents">
-	<h1>メール送信画面</h1>
+	<h1>送信完了</h1>
       </div><!-- /.header-contents -->
     </header>
     
@@ -24,26 +29,13 @@
       <section>
 	
 	<p>
-	  <form action="cgi-bin/aaa.cgi" method="post">
-	    
-	    <br>件名<br>
-	    <tr>
-	      <td><input type="text" name="title" size="30" maxlength="30"></td>
-	    </tr>	    
-	    
-	    <br>本文<br>
-	    <tr>
-	      <!--<td><input type="text" name="text" size="1000" maxlength="10000"></td>
-		-->
-	      <textarea name="freeans" rows="10" cols="100"></textarea>
-	      
-	    </tr>
-	    <br>
-	    <tr>
-	      <td>
-		<input type="submit" value="送信" id="submit" name="送信する">
-		<input type="submit" value="戻る" id="submit" name="戻る" 
+<div align="center">
+	    <h2>メールを送信しました</h2>
+	  </div>
+<div class="button_wrapper">
+		<input type="submit" value="Top" id="submit" name="Top" 
 		       onClick="location.href='index.html';"/>
+</div>
 	      </td>
 	    </tr>
 	  </form>
