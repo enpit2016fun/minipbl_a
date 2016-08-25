@@ -28,7 +28,7 @@ window.onload = function(){
 							"<td>"+members[i][6]+"</td>"+
 							"<td>"+
 									"<form action=\"../view/edit_info.html\">"+
-										"<button type=\"submit\">Edit</button>"+
+										"<button type=\"submit\">編集</button>"+
 									"</form>"+
 							"</td>"+
 						"</tr>";
