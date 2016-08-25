@@ -31,7 +31,7 @@ function getData(path, conditions){
     data.send("");
 
     var LF = String.fromCharCode(10);
-    var lines = data.responseText.split(LF);
+    var lines = data.responseText.split(/\r\n|\r|\n/);
     for (var i = 0; i < lines.length; ++i) {
         var cells = lines[i].split(",");
         if(i == 0) continue;
