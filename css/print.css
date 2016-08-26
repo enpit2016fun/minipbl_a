@@ -25,10 +25,9 @@ li {
 }
 
 #modal-content {
-	width: 27% ;
-	height: 90% ;
-	margin-left: -50px;
-	margin-top: 90px ;
+	width: 340px ;
+	height: 530px ;
+	margin-top: 10px ;
 	padding: 10px 10px ;
 	border: 2px solid #aaa ;
 	background: #fff ;
