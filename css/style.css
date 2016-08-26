@@ -19,12 +19,21 @@ header{
 	position: relative;
 	z-index: 10;
 }
-.header-contents{
+.header-logo{
 	box-sizing:border-box;
 	max-width: 960px;
 	margin: 0 auto;
 	min-height: 100px;
 	background-image: url(../resource/logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+}
+.header-contents{
+	box-sizing:border-box;
+	max-width: 960px;
+	margin: 0 auto;
+	min-height: 100px;
+	<!--background-image: url(../resource/logo.png);-->
 	background-repeat: no-repeat;
 	background-position: 10px 50%;
 }
